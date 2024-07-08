@@ -1,0 +1,261 @@
+Aquí tienes el contenido HTML proporcionado, listo para ser usado en una página web. Este código crea una página para realizar denuncias a la AFIP. Puedes copiar y pegar este código en un archivo `.html` y abrirlo en un navegador para ver el resultado.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denuncia - AFIP</title>
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+      .uppercase {
+        text-transform: uppercase;
+      }
+
+      .separadorDer {
+        border-right: 1px solid #ddd;
+      }
+
+      .stepwizard-row.small::before {
+        left: 0;
+      }
+
+      @media (max-width: 766px) {
+        .separadorDer {
+          border-right: none;
+        }
+      }
+
+      .hidden {
+        display: none !important;
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main style="padding-top: 40px !important">
+      <section
+        class="m-b-3 m-t-3"
+        id="sPaso2"
+        style="font-family: 'Roboto' !important"
+      >
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2"
+              data-protonpass-form=""
+            >
+              <div class="well p-a-2 p-b-3 m-t-0">
+                <div class="media">
+                  <div class="">
+                    <div class="row" id="divDenCD">
+                      <div class="m-b-1 col-xs-12">
+                        <h2 class="title" id="pDenominacion">BREAKFAST CLUB SRL</h2>
+                      </div>
+                      <hr class="m-t-0 m-b-1" />
+                      <div
+                        class="m-b-1 m-l-3 col-xs-11"
+                        style="
+                          margin-left: 48px !important;
+                          padding-inline: 15px !important;
+                        "
+                      >
+                        <p class="h5 text-black">CUIT</p>
+                        <p class="h4" id="pCUIT">30-46132677-7</p>
+                      </div>
+                      <div
+                        class="col-xs-11 m-l-3"
+                        style="
+                          margin-left: 48px !important;
+                          padding-inline: 15px !important;
+                        "
+                      >
+                        <p class="h5 text-black">DOMICILIO</p>
+                        <p class="h4 uppercase" id="pDomicilio">
+                          GARIN, CALLE CABILDO 2099, ESCOBAR
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row" id="divDenDom" style="display: none">
+                      <div class="col-xs-12">
+                        <p class="h5 text-black">Domicilio:</p>
+                        <p class="h4 uppercase" id="pDomicilioDom"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="well p-a-2 p-b-3 m-t-0">
+                <div class="media">
+                  <div class="media-body">
+                    <h3 class="title">IRREGULARIDADES</h3>
+                    <p>Si detectás alguna de las siguientes condiciones:</p>
+                    <div class="row">
+                      <div class="form-group col-xs-12 m-l-2">
+                        <fieldset>
+                          <div class="checkbox">
+                            <label for="chkI2">
+                              <input
+                                type="radio"
+                                name="opciones"
+                                id="chkI2"
+                                aria-data="2"
+                                onclick="toggleDiv('divDatosContacto')"
+                              />
+                              No me entregó factura
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label for="chkI20">
+                              <input
+                                type="radio"
+                                name="opciones"
+                                id="chkI20"
+                                aria-data="20"
+                                onclick="toggleDiv('divDatosContacto')"
+                              />
+                              Personal no declarado
+                            </label>
+                          </div>
+                          <div class="checkbox">
+                            <label for="chkI21">
+                              <input
+                                type="radio"
+                                name="opciones"
+                                id="chkI21"
+                                aria-data="21"
+                                onclick="toggleDiv('divAlertTI')"
+                              />
+                              Trabajo ilegal
+                            </label>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <div
+                        class="form-group col-xs-12 m-t-2 hidden"
+                        id="divAlertTI"
+                      >
+                        <div class="panel panel-default">
+                          <div class="media">
+                            <p>
+                              Canales para denunciar trata de personas,
+                              explotación infantil y reducción a la
+                              servidumbre:<br />
+                            </p>
+                            <ul class="text-gray-dark">
+                              <li>
+                                Telefónico:
+                                <a href="tel:0800-999-3368"
+                                  >0800-999-DENU (3368)</a
+                                >
+                                - <strong>opción 3</strong> - las 24 horas los
+                                365 días de año.
+                              </li>
+                              <li>
+                                Correo electrónico: tratalaboral@afip.gob.ar
+                              </li>
+                              <li>
+                                Presencial: en cualquier
+                                <a
+                                  href="https://serviciosweb.afip.gob.ar/genericos/buscadordependencias/dependencias.aspx"
+                                  >dependencia de la AFIP</a
+                                >.
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                          <p>
+                            <strong>¡IMPORTANTE!</strong> Estas denuncias
+                            implican que existen indicios de uno o mas de los
+                            siguientes delitos:<br />
+                            <br />
+                          </p>
+                          <ul class="text-muted">
+                            <li>
+                              <strong
+                                >Trata de personas con fines de explotación
+                                laboral.</strong
+                              >
+                              Por ejemplo, trabajadores o trabajadoras que
+                              desarrollan tareas contra su voluntad, no puedan
+                              abandonar su lugar de trabajo, tengan retenido su
+                              DNI o pasaporte, la propuesta laboral fuera
+                              engañosa, deban cumplir jornadas por encima del
+                              máximo permitido y perciban sueldos por debajo del
+                              Salario Mínimo Vital y Móvil en contextos
+                              desfavorables.
+                            </li>
+                            <br />
+                            <li>
+                              <strong>Reducción a la servidumbre.</strong> Por
+                              ejemplo, no se percibe remuneración por el trabajo
+                              realizado, o esta es inferior al Salario Mínimo
+                              Vital y Móvil y se realizan jornadas con mayor
+                              cantidad de horas que lo permitido por ley, están
+                              obligados a trabajar en contra de su voluntad,
+                              entre otras.
+                            </li>
+                            <br />
+                            <li>
+                              <strong>Trabajo infantil </strong>(menores de 16
+                              años)
+                            </li>
+                            <br />
+                            <li>
+                              <strong
+                                >Contratación de personas en situación
+                                migratoria irregular.</strong
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div id="divDatosContacto">
+                        <div class="col-xs-12 h6 m-b-2">
+                          <h3 class="title">Datos de contacto</h3>
+                          <p>
+                            Tus datos son de uso exclusivo de AFIP y no serán
+                            compartidos con la persona que estás denunciando.
+                          </p>
+                        </div>
+
+                        <div class="form-group col-xs-12 col-sm-4">
+                          <label class="control-label text-black" for="cuil"
+                            >CUIL/CUIT/CDI:</label
+                          >
+                          <div class="input-group">
+                            <span class="input-group-addon"
+                              ><span class="glyphicon glyphicon-user"></span
+                            ></span>
+                            <input
+                              type="text"
+                              class="form-control numerico"
+                              maxlength="11"
+                              id="tbCuitDen"
+                            />
+                          </div>
+                          <span class="help-block m-b-
